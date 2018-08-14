@@ -21,3 +21,9 @@
 8. `git branch dev` 新建一个**dev**分支。
 9. `git checkout dev` 切换到**dev**分支。
 10. `git merge dev` 分支合并。
+
+# 本项目使用方法
+1. `git clone 项目地址`，然后进入项目。
+2. `composer install`。
+3. 新建.env文件，配置数据库信息 （数据库在bookstore.sql中），然后运行 `php artisan key:generate`。
+4. web服务器访问public目录。访问成功！
