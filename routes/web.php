@@ -12,3 +12,7 @@
 */
 
 Route::get('/', 'View\CategoryController@index');
+
+Route::group(['prefix' => 'service'], function () {
+    Route::post('category/{parent_id}', 'Service\CategoryController@categories');
+});
