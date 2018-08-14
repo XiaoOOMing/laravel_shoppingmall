@@ -61,3 +61,29 @@ $(function () {
         window.scrollTo(0, 0);
     });
 });
+
+// 添加购物车
+$(function () {
+    $('#addCar').click(function () {
+        var product_id = $(this).data('id');
+        var url = "/service/car";
+        var postData = {_token: _tools.csrf(), product_id: product_id};
+        _tools.post(url, postData, function (res) {
+            if (res.status === 0) {
+                window.location.href = '/login';
+            } else {
+                var count = res.data.count;
+                $('#carNum').html(count);
+            }
+        });
+    });
+});
+
+// 更换图片验证码
+$(function () {
+    var validateImage = $('#validateImage');
+    validateImage.on('click', function () {
+        var url = '/service/validate_code?rand=' + Math.round(Math.random()*5000);
+        $(this).attr('src', url);
+    })
+});
