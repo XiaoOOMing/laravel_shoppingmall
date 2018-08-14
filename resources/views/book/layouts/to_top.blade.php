@@ -1,0 +1,1 @@
+<a href="javascript:;" class="to-top">Top</a>

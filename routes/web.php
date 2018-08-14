@@ -18,9 +18,10 @@
 Route::get('/', 'View\CategoryController@index');
 
 // 列表详情
-Route::get('/products/{id}', 'View\CategoryController@products');
+Route::get('/products/{category_id}', 'View\CategoryController@products');
 
 // 内容详情
+Route::get('/product/{id}', 'View\ProductController@index');
 
 // 购物车
 

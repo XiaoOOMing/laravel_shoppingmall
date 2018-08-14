@@ -21,6 +21,8 @@
 
 @include('book.layouts.action_sheet')
 
+@include('book.layouts.to_top')
+
 <script src="{{ asset('static/js/jquery-3.2.1.min.js') }}"></script>
 <script src="{{ asset('static/js/book.js') }}"></script>
 
