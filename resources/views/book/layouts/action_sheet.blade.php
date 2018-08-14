@@ -2,7 +2,17 @@
     <div class="weui-mask" id="iosMask" style="display: none"></div>
     <div class="weui-actionsheet" id="iosActionsheet">
         <div class="weui-actionsheet__title">
-            <p class="weui-actionsheet__title-text">欢迎来到 XiaoOOMing 的书店!</p>
+            <p class="weui-actionsheet__title-text">
+                @if(session('member'))
+                    尊敬的
+                    <span class="price">{{ json_decode(session('member'), true)['username'] }}</span>
+                    <br>
+                @else
+                    <a href="/login" style="color: #666;">游客您好，您尚未登录。</a>
+                    <br>
+                @endif
+                欢迎来到 XiaoOOMing 的书店!
+            </p>
         </div>
         <div class="weui-actionsheet__menu">
             <div class="weui-actionsheet__cell">书籍列表</div>
