@@ -79,6 +79,29 @@ $(function () {
     });
 });
 
+// 删除购物车
+$(function() {
+    $('#deleteCar').click(function () {
+        var product_id = [];
+        $('.car-check').each(function () {
+            if ($(this).is(':checked')) {
+                product_id.push($(this).attr('id'))
+            }
+        });
+        if (product_id.length === 0) {
+            alert('请选择要删除的商品');
+            return;
+        }
+        var url = '/service/delete_car';
+        var postData = {_token: _tools.csrf(), product_id: product_id};
+        _tools.post(url, postData, function (res) {
+            if (res.status === 1) {
+                window.location.reload();
+            }
+        });
+    });
+})
+
 // 更换图片验证码
 $(function () {
     var validateImage = $('#validateImage');
