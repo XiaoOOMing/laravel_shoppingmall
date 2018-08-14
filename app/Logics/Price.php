@@ -6,7 +6,9 @@ class Price
 {
     public static function price_format($data, $col = 'price')
     {
-        if (isset($data[$col])) {
+        if (is_numeric($data) || is_string($data)) {
+            $data = number_format($data / 100, 2, '.', '');
+        } else if (isset($data[$col])) {
             $data[$col] = number_format($data[$col] / 100, 2, '.', '');
         } else {
             foreach ($data as $k => $vo) {

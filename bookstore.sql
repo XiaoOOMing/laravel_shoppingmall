@@ -10,10 +10,31 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-08-14 13:13:07
+Date: 2018-08-14 17:06:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for car
+-- ----------------------------
+DROP TABLE IF EXISTS `car`;
+CREATE TABLE `car` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `member_id` int(10) unsigned DEFAULT NULL,
+  `product_id` int(10) unsigned DEFAULT NULL,
+  `count` int(10) unsigned DEFAULT NULL,
+  `checked` tinyint(3) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of car
+-- ----------------------------
+INSERT INTO `car` VALUES ('1', '2', '2', '1', '0');
+INSERT INTO `car` VALUES ('2', '2', '1', '2', '0');
+INSERT INTO `car` VALUES ('3', '2', '4', '1', '1');
+INSERT INTO `car` VALUES ('4', '2', '3', '1', '1');
 
 -- ----------------------------
 -- Table structure for categorys
@@ -42,6 +63,31 @@ INSERT INTO `categorys` VALUES ('7', 'SpringMVC', '2', '0', '0000-00-00 00:00:00
 INSERT INTO `categorys` VALUES ('8', 'Node.js', '3', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `categorys` VALUES ('9', 'Vue.js', '3', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 INSERT INTO `categorys` VALUES ('10', 'React.js', '3', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- ----------------------------
+-- Table structure for members
+-- ----------------------------
+DROP TABLE IF EXISTS `members`;
+CREATE TABLE `members` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of members
+-- ----------------------------
+INSERT INTO `members` VALUES ('1', '364216899@qq.com', 'e10adc3949ba59abbe56e057f20f883e', '364216899@qq.com', '2018-08-14 06:18:21', '2018-08-14 06:18:21');
+INSERT INTO `members` VALUES ('2', '13261675306@163.com', 'e10adc3949ba59abbe56e057f20f883e', '13261675306@163.com', '2018-08-14 06:56:52', '2018-08-14 06:56:52');
+INSERT INTO `members` VALUES ('3', '13261675306@126.com', 'e10adc3949ba59abbe56e057f20f883e', '13261675306@126.com', '2018-08-14 06:58:18', '2018-08-14 06:58:18');
+INSERT INTO `members` VALUES ('4', '13261675306@vip.com', 'e10adc3949ba59abbe56e057f20f883e', '13261675306@vip.com', '2018-08-14 06:58:42', '2018-08-14 06:58:42');
+INSERT INTO `members` VALUES ('5', '13261675306@bb.com', 'e10adc3949ba59abbe56e057f20f883e', '13261675306@bb.com', '2018-08-14 06:59:09', '2018-08-14 06:59:09');
+INSERT INTO `members` VALUES ('6', '111', '698d51a19d8a121ce581499d7b701668', '111', '2018-08-14 06:59:30', '2018-08-14 06:59:30');
+INSERT INTO `members` VALUES ('7', '222', 'bcbe3365e6ac95ea2c0343a2395834dd', '222', '2018-08-14 06:59:54', '2018-08-14 06:59:54');
 
 -- ----------------------------
 -- Table structure for products

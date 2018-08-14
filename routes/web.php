@@ -29,12 +29,17 @@ Route::get('/login', 'View\LoginController@index');
 // 注册
 Route::get('/register', 'View\RegisterController@index');
 
-// 购物车
+/**
+ * 需要登录的视图
+ */
+Route::group(['middleware' => 'check_login_redirect'], function () {
+    // 购物车
+    Route::get('/car', 'View\CarController@index');
 
+    // 提交订单
 
-// 提交订单
-
-// 结算
+    // 结算
+});
 
 
 /**
@@ -62,5 +67,8 @@ Route::group(['prefix' => 'service'], function () {
     Route::group(['middleware' => 'check_login'], function () {
         // 添加购物车
         Route::post('car', 'Service\CarController@add_car');
+
+        // 购物车选中状态
+        Route::post('car/check', 'Service\CarController@check');
     });
 });

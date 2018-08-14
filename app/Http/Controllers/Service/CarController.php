@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Service;
 
 use App\Logics\Member;
+use App\Logics\Price;
 use App\Logics\Show;
 use App\Models\Car;
 use Illuminate\Http\Request;
@@ -31,5 +32,29 @@ class CarController extends Controller
         // 返回购物车数量
         $count = Car::where('member_id', $member->id)->sum('count');
         return Show::show(1, 'ok', ['count' => $count]);
+    }
+
+    // 购物车选中状态
+    public function check(Request $request)
+    {
+        // 修改选中状态
+        $data = $request->input();
+        $member = $request->session()->get('member');
+        Car::where('member_id', $member->id)
+            ->where('product_id', $data['id'])
+            ->update(['checked' => $data['checked']]);
+
+        // 获取购物车总金额
+        $checked = Car::where('member_id', $member->id)
+            ->where('checked', 1)
+            ->get();
+        $total = 0;
+        foreach ($checked as $vo) {
+            $total += $vo->product->price * $vo->count;
+        }
+        $total = Price::price_format($total);
+        return Show::show(1, 'Checked changed success!', [
+            'total' => $total
+        ]);
     }
 }

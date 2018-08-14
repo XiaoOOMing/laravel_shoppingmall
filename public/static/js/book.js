@@ -98,3 +98,13 @@ $(function () {
         })
     });
 });
+
+// 跳转书籍列表 、 购物车
+$(function () {
+    $('#_category').on('click', function () {
+        window.location.href = '/';
+    });
+    $('#_car').on('click', function () {
+        window.location.href = '/car';
+    });
+});

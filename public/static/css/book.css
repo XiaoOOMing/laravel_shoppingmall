@@ -21,6 +21,10 @@ body {
     text-align: center;
     font-size: 13px;
 }
+
+.weui-media-box.noborder:before{
+    display: none;
+}
 /* 菜单 */
 
 nav {
@@ -72,11 +76,26 @@ footer.d_footer {
     align-items: center;
 }
 
-footer.d_footer a {
+footer.d_footer a, footer.car-footer a {
     width: 46%;
     padding: 0 !important;
     margin: 0 !important;
     line-height: 36px;
     height: 36px;
     font-size: 14px;
+}
+
+/* 购物车底部 */
+
+footer.car-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
 }
