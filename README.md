@@ -1,5 +1,4 @@
 # GitHub基本使用
----
 1. 在文件夹中使用`git init`，会在文件夹中生成一个**.git**的文件夹。
 2. 在文件夹中创建一个`text.txt`文件。
 3. 在命令行中输入`git status`，会显示未跟踪的文件。
@@ -10,7 +9,6 @@
 8. `git clean -xf`删除未跟踪的文件。
 
 # 连接到GitHub
----
 1. 配置用户名和邮箱：
 `git config --global user.name "你的用户名"`
 `git config --global user.email "你的邮箱"`
