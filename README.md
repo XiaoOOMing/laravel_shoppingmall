@@ -8,3 +8,18 @@
 6.`git log`查看日志;`git reflog`查看历史版本。
 7.`git reset --hard + 版本号前七位`退回某个版本。
 8.`git clean -xf`删除未跟踪的文件。
+
+# 连接到GitHub
+---
+1.配置用户名和邮箱：
+`git config --global user.name "你的用户名"`
+`git config --global user.email "你的邮箱"`
+2.生成ssh key `ssh-keygen -t rsa -C "你的邮箱"`，输入完一直回车就行。
+3.复制公钥 `clip < ~/.ssh/id_rsa.pub`。
+4.登录**GitHub**后台，在setting -> SSH and GPG keys中添加公钥。
+5.`ssh -T git@github.com` 测试**GitHub**是否连接成功。
+6.`git remote add origin 你复制的地址` 建立远程连接。
+7.`git push -u origin master` 提交代码。以后只需要输入 `git push`即可。
+8.`git branch dev` 新建一个**dev**分支。
+9.`git checkout dev` 切换到**dev**分支。
+10.`git merge dev` 分支合并。
