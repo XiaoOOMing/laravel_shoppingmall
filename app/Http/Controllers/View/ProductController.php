@@ -19,7 +19,11 @@ class ProductController extends Controller
         $product_images = ProductImage::where('product_id', $id)->get();
         $product_content = ProductDetail::where('product_id', $id)->first();
         $member = $request->session()->get('member');
-        $car_count = Car::where('member_id', $member->id)->sum('count');
+        if ($member) {
+            $car_count = Car::where('member_id', $member->id)->sum('count');
+        } else {
+            $car_count = 0;
+        }
         return view('book.product', [
             'product' => $product,
             'product_images' => $product_images,

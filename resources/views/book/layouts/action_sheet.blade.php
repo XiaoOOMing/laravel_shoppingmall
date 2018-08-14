@@ -7,7 +7,7 @@
         <div class="weui-actionsheet__menu">
             <div class="weui-actionsheet__cell">书籍列表</div>
             <div class="weui-actionsheet__cell">购物车</div>
-            <div class="weui-actionsheet__cell">注销</div>
+            <div class="weui-actionsheet__cell" id="_logout">注销</div>
         </div>
         <div class="weui-actionsheet__action">
             <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>

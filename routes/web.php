@@ -29,8 +29,6 @@ Route::get('/login', 'View\LoginController@index');
 // 注册
 Route::get('/register', 'View\RegisterController@index');
 
-// 注销
-
 // 购物车
 
 
@@ -47,10 +45,13 @@ Route::group(['prefix' => 'service'], function () {
     Route::post('category/{parent_id}', 'Service\CategoryController@categories');
 
     // 用户登录
-    Route::post('/login', 'Service\LoginController@index');
+    Route::post('/login', 'Service\LoginController@login');
 
     // 注册
     Route::post('/register', 'Service\RegisterController@regist');
+
+    // 注销
+    Route::post('/logout', 'Service\LoginController@logout');
 
     // 验证码
     Route::get('/validate_code', 'Service\LoginController@validate_code');

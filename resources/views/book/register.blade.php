@@ -71,7 +71,12 @@
 
             // 发送请求
             _tools.post(url, postData, function (res) {
-
+                console.log(res)
+                if (res.status === 1) {
+                    window.location.href = '/';
+                } else {
+                    alert(res.message);
+                }
             });
         });
     </script>

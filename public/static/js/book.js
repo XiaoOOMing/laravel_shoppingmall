@@ -83,7 +83,18 @@ $(function () {
 $(function () {
     var validateImage = $('#validateImage');
     validateImage.on('click', function () {
-        var url = '/service/validate_code?rand=' + Math.round(Math.random()*5000);
+        var url = '/service/validate_code?rand=' + Math.round(Math.random() * 5000);
         $(this).attr('src', url);
     })
+});
+
+// 注销
+$(function () {
+    $('#_logout').on('click', function () {
+        var url = '/service/logout';
+        var postData = {_token: _tools.csrf()};
+        _tools.post(url, postData, function () {
+            window.location.href = '/login';
+        })
+    });
 });
