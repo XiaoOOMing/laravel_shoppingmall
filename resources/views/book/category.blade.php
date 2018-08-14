@@ -17,15 +17,7 @@
     </div>
 
     <div class="weui-cells__title">书籍分类:</div>
-    <div class="weui-cells" id="childCategory">
-        <a class="weui-cell weui-cell_access" href="javascript:;">
-            <div class="weui-cell__bd">
-                <p>Nodejs</p>
-            </div>
-            <div class="weui-cell__ft">
-            </div>
-        </a>
-    </div>
+    <div class="weui-cells" id="childCategory"></div>
 @endsection
 
 @section('js')

@@ -9,7 +9,7 @@ $(function () {
         _tools.post(url, postData, function (res) {
             var html = '';
             for (x in res) {
-                var item = '<a class="weui-cell weui-cell_access" href="javascript:;"><div class="weui-cell__bd"><p>' + res[x]['name'] + '</p></div><div class="weui-cell__ft"></div></a>';
+                var item = '<a class="weui-cell weui-cell_access" href="/products/' + res[x]['id'] + '"><div class="weui-cell__bd"><p>' + res[x]['name'] + '</p></div><div class="weui-cell__ft"></div></a>';
                 html += item;
             }
             child.empty().append(html);

@@ -11,8 +11,27 @@
 |
 */
 
+/**
+ * 视图
+ */
+// 书籍列表
 Route::get('/', 'View\CategoryController@index');
 
+// 列表详情
+Route::get('/products/{id}', 'View\CategoryController@products');
+
+// 内容详情
+
+// 购物车
+
+// 提交订单
+
+// 结算
+
+
+/**
+ * 服务器接口
+ */
 Route::group(['prefix' => 'service'], function () {
     Route::post('category/{parent_id}', 'Service\CategoryController@categories');
 });
