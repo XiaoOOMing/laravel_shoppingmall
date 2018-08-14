@@ -70,5 +70,8 @@ Route::group(['prefix' => 'service'], function () {
 
         // 购物车选中状态
         Route::post('car/check', 'Service\CarController@check');
+
+        // 删除购物车
+        Route::post('delete_car', 'Service\CarController@delete_car');
     });
 });

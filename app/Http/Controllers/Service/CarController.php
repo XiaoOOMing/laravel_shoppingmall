@@ -57,4 +57,16 @@ class CarController extends Controller
             'total' => $total
         ]);
     }
+
+    // 删除购物车
+    public function delete_car(Request $request)
+    {
+        $data = $request->input();
+        $member = $request->session()->get('member');
+
+        $car = Car::where('member_id', $member->id)
+            ->whereIn('product_id', $data['product_id'])
+            ->delete();
+        return Show::show(1, '删除成功');
+    }
 }
