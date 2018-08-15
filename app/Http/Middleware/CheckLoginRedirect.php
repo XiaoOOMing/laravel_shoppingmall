@@ -8,6 +8,7 @@ class CheckLoginRedirect
 {
     /**
      * Handle an incoming request.
+     * 判断是否登录，未登录直接跳转到登录页
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

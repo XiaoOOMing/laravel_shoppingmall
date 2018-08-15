@@ -2,25 +2,25 @@
 
 namespace App\Http\Middleware;
 
-use App\Logics\Show;
 use Closure;
 
-class CheckLogin
+class HasLogin
 {
     /**
      * Handle an incoming request.
-     * 判断是否登录。未登录返回一条提示信息
+     * 如果登录了，就无法进入的页面（登录 注册页）
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure $next
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
         $member = $request->session()->get('member');
-        if (!$member) {
-            return exit(Show::show(0, 'please login'));
+        if ($member) {
+            return redirect('/');
         }
+
         return $next($request);
     }
 }

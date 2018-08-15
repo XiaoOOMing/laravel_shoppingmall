@@ -24,10 +24,10 @@ Route::get('/products/{category_id}', 'View\CategoryController@products');
 Route::get('/product/{id}', 'View\ProductController@index');
 
 // 登录
-Route::get('/login', 'View\LoginController@index');
+Route::get('/login', 'View\LoginController@index')->middleware('has_login');
 
 // 注册
-Route::get('/register', 'View\RegisterController@index');
+Route::get('/register', 'View\RegisterController@index')->middleware('has_login');
 
 /**
  * 需要登录的视图
