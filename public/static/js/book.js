@@ -100,7 +100,7 @@ $(function() {
             }
         });
     });
-})
+});
 
 // 更换图片验证码
 $(function () {
@@ -130,4 +130,29 @@ $(function () {
     $('#_car').on('click', function () {
         window.location.href = '/car';
     });
+});
+
+// 生成订单
+$('#createOrder').on('click', function () {
+    var url = '/service/order';
+    var product_id = [];
+    $('.car-check').each(function () {
+        if ($(this).is(':checked')) {
+            product_id.push($(this).attr('id'));
+        }
+    });
+    var postData = {_token: _tools.csrf(), product_id: product_id};
+    console.log(postData);
+    if (product_id.length === 0) {
+        alert('请先选择需要购买的产品!');
+        return;
+    }
+
+    _tools.post(url, postData, function (res) {
+        if (res.status === 0) {
+            alert(res.message);
+        } else {
+            window.location.href = '/payment/' + res.data.order_no;
+        }
+    })
 });
