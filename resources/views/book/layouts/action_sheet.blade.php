@@ -16,6 +16,7 @@
         </div>
         <div class="weui-actionsheet__menu">
             <div class="weui-actionsheet__cell" id="_category">书籍列表</div>
+            <div class="weui-actionsheet__cell" id="_order">我的订单</div>
             <div class="weui-actionsheet__cell" id="_car">购物车</div>
             <div class="weui-actionsheet__cell" id="_logout">注销</div>
         </div>

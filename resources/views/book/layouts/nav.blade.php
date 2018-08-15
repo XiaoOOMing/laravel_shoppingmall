@@ -3,3 +3,4 @@
     <a href="javascript:;">@yield('title')</a>
     <a href="javascript:;" id="showIOSActionSheet">菜单</a>
 </nav>
+<div class="nav-holder"></div>

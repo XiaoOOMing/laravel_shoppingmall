@@ -36,9 +36,17 @@ Route::group(['middleware' => 'check_login_redirect'], function () {
     // 购物车
     Route::get('/car', 'View\CarController@index');
 
-    // 提交订单
+    // 收银台 | 确认订单
+    Route::get('/payment/{order_no}', 'View\OrderController@payment');
 
-    // 结算
+    // 订单中心
+    Route::get('/orders', 'View\OrderController@index');
+
+    // 评价订单
+    Route::get('/comment/{order_no}/{product_id}', 'View\OrderController@comment');
+
+    // 待评价商品列表
+    Route::get('/comment_list/{order_no}', 'View\OrderController@comment_list');
 });
 
 
@@ -76,5 +84,17 @@ Route::group(['prefix' => 'service'], function () {
 
         // 提交订单
         Route::post('order', 'Service\OrderController@create_order');
+
+        // 删除订单
+        Route::post('order_delete', 'Service\OrderController@delete_order');
+
+        // 支付
+        Route::post('pay', 'Service\OrderController@pay');
+
+        // 确认收货
+        Route::post('affirm_order', 'Service\OrderController@affirm_order');
+
+        // 评价商品
+        Route::post('order_comment', 'Service\OrderController@comment');
     });
 });
