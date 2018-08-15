@@ -63,7 +63,7 @@
             // 登录
             _tools.post(url, postData, function (res) {
                 if (res.status === 1) {
-                    window.location.href= '/';
+                    window.location.href= '{{ $referer }}';
                 } else {
                     alert(res.message);
                 }
