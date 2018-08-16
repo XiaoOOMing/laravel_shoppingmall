@@ -59,8 +59,17 @@ Route::group(['prefix' => 'admin'], function () {
      * 需要登录的后台视图
      */
     Route::group(['middleware' => 'check_admin'], function () {
+        // 首页
         Route::get('/', 'Admin\AdminController@index');
+
+        // 欢迎页
         Route::get('/welcome', 'Admin\AdminController@welcome');
+
+        // 产品首页
+        Route::get('/product','Admin\ProductController@index');
+
+        // 添加产品
+        Route::get('/product/add', 'Admin\ProductController@add');
     });
 });
 /**
