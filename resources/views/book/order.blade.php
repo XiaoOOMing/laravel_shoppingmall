@@ -21,7 +21,7 @@
                     <span class="weui-form-preview__value">{{ $order->created_at }}</span>
                 </div>
                 <div class="weui-form-preview__item">
-                    <label class="weui-form-preview__label">支付时间</label>
+                    <label class="weui-form-preview__label">更新时间</label>
                     <span class="weui-form-preview__value">{{ $order->updated_at }}</span>
                 </div>
                 <div class="weui-form-preview__item">
