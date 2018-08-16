@@ -49,7 +49,20 @@ Route::group(['middleware' => 'check_login_redirect'], function () {
     Route::get('/comment_list/{order_no}', 'View\OrderController@comment_list');
 });
 
-
+/**
+ * 后台视图
+ */
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/login', 'Admin\LoginController@index');
+    Route::post('login', 'Admin\LoginController@login');
+    /**
+     * 需要登录的后台视图
+     */
+    Route::group(['middleware' => 'check_admin'], function () {
+        Route::get('/', 'Admin\AdminController@index');
+        Route::get('/welcome', 'Admin\AdminController@welcome');
+    });
+});
 /**
  * 服务器接口
  */

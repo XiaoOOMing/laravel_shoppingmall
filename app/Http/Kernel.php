@@ -63,5 +63,6 @@ class Kernel extends HttpKernel
         'check_login' => \App\Http\Middleware\CheckLogin::class,
         'check_login_redirect' => \App\Http\Middleware\CheckLoginRedirect::class,
         'has_login' => \App\Http\Middleware\HasLogin::class,
+        'check_admin' => \App\Http\Middleware\CheckAdmin::class,
     ];
 }
