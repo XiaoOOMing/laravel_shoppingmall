@@ -2,3 +2,6 @@
 <script type="text/javascript" src="/static/huiadmin/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="/static/huiadmin/static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="/static/huiadmin/static/h-ui.admin/js/H-ui.admin.js"></script>
+<!-- ueditor -->
+<script type="text/javascript" src="/static/huiadmin/lib/ueditor/1.4.3/ueditor.config.js"></script>
+<script type="text/javascript" src="/static/huiadmin/lib/ueditor/1.4.3/ueditor.all.js"></script>

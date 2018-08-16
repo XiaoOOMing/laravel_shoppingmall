@@ -15,13 +15,17 @@
     <link rel="stylesheet" type="text/css" href="/static/huiadmin/static/h-ui.admin/css/style.css"/>
     @yield('css')
     <title>我的桌面</title>
+    <style>
+        #container {
+            min-height: 500px;
+        }
+    </style>
 </head>
 <body>
 <div class="page-container">
     @yield('content')
 </div>
-<script type="text/javascript" src="/static/huiadmin/lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="/static/huiadmin/static/h-ui/js/H-ui.min.js"></script>
+@include('admin.layouts.footer')
 <script src="/static/js/tools.js"></script>
 @yield('js')
 </body>
