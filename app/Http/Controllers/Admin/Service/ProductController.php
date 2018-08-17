@@ -39,6 +39,21 @@ class ProductController extends Controller
 
         // 添加成功
         return Show::show(1, 'ok');
+    }
 
+    // 删除产品
+    public function delete(Request $request)
+    {
+        // 删除产品信息
+        $product_id = $request->input('id');
+        Products::where('id', $product_id)->delete();
+
+        // 删除产品内容
+        ProductDetail::where('product_id', $product_id)->delete();
+
+        // 删除产品轮播图
+        ProductImage::where('product_id', $product_id)->delete();
+
+        return Show::show(1, 'ok');
     }
 }

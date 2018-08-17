@@ -7,3 +7,5 @@
 <script type="text/javascript" src="/static/huiadmin/lib/ueditor/1.4.3/ueditor.all.js"></script>
 {{-- webuploader --}}
 <script src="/static/huiadmin/lib/webuploader/0.1.5/webuploader.js"></script>
+{{-- datatables --}}
+<script src="/static/huiadmin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>

@@ -128,8 +128,8 @@
         // 上传完毕，接收地址
         uploader.on('uploadAccept', function (obj, ret) {
             images.push(ret.data.filename);
+            console.log(images);
         });
-
         // 分类联动
         $('#category').on('change', function() {
             var pid = parseInt($(this).val());

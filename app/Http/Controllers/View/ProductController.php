@@ -16,7 +16,7 @@ class ProductController extends Controller
     {
         $product = Products::where('id', $id)->first();
         $product = Price::price_format($product);
-        $product_images = ProductImage::where('product_id', $id)->get();
+        $product_images = ProductImage::where('product_id', $id)->orderBy('id')->get();
         $product_content = ProductDetail::where('product_id', $id)->first();
         $member = $request->session()->get('member');
         if ($member) {
