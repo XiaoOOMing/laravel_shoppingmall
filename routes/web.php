@@ -70,6 +70,13 @@ Route::group(['prefix' => 'admin'], function () {
 
         // 添加产品
         Route::get('/product/add', 'Admin\ProductController@add');
+        Route::post('/product/add', 'Admin\Service\ProductController@add');
+
+        // 删除产品
+        Route::post('/product/delete', 'Admin\Service\ProductController@delete');
+
+        // 上传产品图片
+        Route::post('uploader', 'Admin\UploaderController@images');
     });
 });
 /**

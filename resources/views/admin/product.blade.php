@@ -32,7 +32,7 @@
                     <td class="td-manage">
                         <a style="text-decoration:none" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>
                         <a style="text-decoration:none" class="ml-5" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
-                        <a style="text-decoration:none" class="ml-5" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                        <a style="text-decoration:none" onclick="deleteProduct({{ $product->id }})" class="ml-5" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
                     </td>
                 </tr>
             @endforeach
@@ -43,6 +43,13 @@
 
 @section('js')
     <script>
+        $('.table-sort').dataTable({
+            "aaSorting": [[ 0, "asc" ]],//默认第几个排序
+            "aoColumnDefs": [
+                {"orderable":false,"aTargets":[1,2,3,5,6]}// 制定列不参与排序
+            ]
+        });
+
         function addProduct() {
             var index = layer.open({
                 type: 2,
@@ -51,6 +58,16 @@
                 area: ['100%', '100%'],
             });
             layer.full(index)
+        }
+
+        function deleteProduct(id) {
+            layer.confirm('确认删除？', {}, function () {
+                var url = '/admin/product/delete';
+                var postData = {_token: _tools.csrf(), id: id};
+                _tools.post(url, postData, function() {
+                    window.location.reload();
+                });
+            });
         }
     </script>
 @endsection
